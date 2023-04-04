@@ -32,59 +32,54 @@ struct DetailView: View {
     var body: some View {
         ScrollView{
             VStack{
-                ZStack{
-                    Rectangle().fill(DetailColor).frame(height:400).cornerRadius(25.0).padding()
-                    //ARView(scene: $scene).frame(height: 300)
-                    CustomSceneView(scene: $scene).frame(height: 300)
-                }//End ZStack
-                HStack{
-                    Text(TitleDetailView).bold().font(.system(size: 20.8))
-                    
-                    Spacer()
-                    
-                    Button("AR View") {
-                        isPresented.toggle()
-                    }.buttonStyle(.bordered)
-                        .fullScreenCover(isPresented: $isPresented) {
-                            ZStack{
-                                ARView(scene: $scene2).ignoresSafeArea()
-                                VStack{
-                                    HStack{
-                                        Spacer()
-                                        ZStack{
-                                            Image(systemName: "xmark.circle.fill").font(.system(size:35)).foregroundColor(.white)
-                                        }.onTapGesture {
-                                            isPresented.toggle()
-                                        }
-                                    }
-                                    Spacer()
-                                }.padding()
-                            }
-                            
-                        }
-                    
-                    
-                    
-                }//End HStack
-                .padding()
-                
-                
-            }//End VStack
-            
-            Divider()
-            VStack{
-                
-                Text(OrganDescription).fixedSize(horizontal: false, vertical: true)
-                
-                
-            }.padding()
-            
-        }//End Scroll View
+                top
+                buttons
+                Divider()
+                Text(OrganDescription).fixedSize(horizontal: false, vertical: true).padding()
+            }
+        }.fullScreenCover(isPresented: $isPresented) {
+            arViewer
+        }
     }
-}
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(DetailColor: CustomColor.myColor2,ModelName: "Circulatory System",ModelText: "PROVA PROVA", organ: "Brain")
+    
+    
+    
+    
+    var top: some View{
+        Group{
+            ZStack{
+                Rectangle().fill(DetailColor).frame(height:400).cornerRadius(25.0).padding()
+                CustomSceneView(scene: $scene).frame(height: 300)
+            }
+        }
+    }
+    
+    var buttons: some View{
+        HStack{
+            Text(TitleDetailView).bold().font(.system(size: 20.8))
+            Spacer()
+            Button("AR View") {
+                isPresented.toggle()
+            }.buttonStyle(.bordered)
+        }.padding()
+    }
+    
+    var arViewer: some View{
+        Group{
+            ZStack{
+                ARView(scene: $scene2).ignoresSafeArea()
+                VStack{
+                    HStack{
+                        Spacer()
+                        ZStack{
+                            Image(systemName: "xmark.circle.fill").font(.system(size:35)).foregroundColor(.black)
+                        }.onTapGesture {
+                            isPresented.toggle()
+                        }
+                    }
+                    Spacer()
+                }.padding()
+            }
+        }
     }
 }
