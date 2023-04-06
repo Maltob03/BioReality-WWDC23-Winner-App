@@ -7,6 +7,9 @@
 
 import SwiftUI
 struct IpadCarouselView: View {
+    let screenRect = UIScreen.main.bounds
+    @State var geoHeigth: CGFloat
+    @State var geoWidth: CGFloat
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
@@ -14,20 +17,16 @@ struct IpadCarouselView: View {
                     SingleCardView(HeaderTextSquare: "Nervous System", ImageAssetName: "brain",color: CustomColor.myColor3)
                 }
                 NavigationLink(destination: DetailView(DetailColor: modelHeart.color, ModelName: modelHeart.name,ModelText: modelHeart.description,organ: "Heart.scn")) {
-                    SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "heart",color: CustomColor.myColor)
+                    SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "brain",color: CustomColor.myColor)
                 }
                 NavigationLink(destination: DetailView(DetailColor: modelLungs.color, ModelName: modelLungs.name,ModelText: modelLungs.description,organ: "Lungs.scn" )) {
-                    SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "lungs",color: CustomColor.myColor2).padding()
+                    SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "brain",color: CustomColor.myColor2)
                 }
             }
-        }.frame(height: 376).padding()
+        }.frame(height: geoHeigth*0.8)
     }
     
     
 }
 
-struct IpadCarouselView_Previews: PreviewProvider {
-    static var previews: some View {
-        IpadCarouselView()
-    }
-}
+

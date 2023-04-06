@@ -4,32 +4,27 @@ import SwiftUI
 struct CardView: View {
     @State private var index = 0
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
+    @State var one: CGSize?
     var body: some View {
-        NavigationView(){
-            ScrollView(.vertical){
-                VStack{
-                    heroList
-                    HStack{
-                        Text("Section").padding()
-                        Spacer()
+        GeometryReader{ geometry in
+            NavigationView(){
+                ScrollView(.vertical){
+                    VStack{
+                        if(horizontalSizeClass == .compact){
+                            CarouselView().padding(.top)
+                        }
+                        else {
+                            IpadCarouselView(geoHeigth: geometry.size.height, geoWidth: geometry.size.width)
+                        }
+                        HStack{
+                            Text("Section").padding()
+                            Spacer()
+                        }
+                        secondaryList
                     }
-                    secondaryList
-                }
-            }.navigationTitle("BioReality")
-        }.navigationViewStyle(StackNavigationViewStyle())
-        
-    }
-    
-    
-    var heroList: some View{
-        Group{
-            if(horizontalSizeClass == .compact){
-                CarouselView().padding(.top)
-            }
-            else {
-                IpadCarouselView()
-            }
+                }.navigationTitle("BioReality")
+            }.navigationViewStyle(StackNavigationViewStyle())
+            
         }
     }
     

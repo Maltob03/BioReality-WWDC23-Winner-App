@@ -48,8 +48,10 @@ struct DetailView: View {
     var top: some View{
         Group{
             ZStack{
-                Rectangle().fill(DetailColor).frame(height:400).cornerRadius(25.0).padding()
-                CustomSceneView(scene: $scene).frame(height: 300)
+                Rectangle().fill(DetailColor).frame(height:600).cornerRadius(25.0).padding()
+                CustomSceneView(scene: $scene)
+                    .frameSizeForDevice(iPhoneSize: CGSize(width: 300, height: 300), iPadSize: CGSize(width: 600, height: 600))
+                    
             }
         }
     }

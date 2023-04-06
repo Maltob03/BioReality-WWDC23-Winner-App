@@ -20,7 +20,7 @@ struct PremiumView: View {
                 ZStack{
                     Rectangle()
                         .fill(PremiumColor)
-                        .frame(width: 161, height: 140)
+                        .frameSizeForDevice(iPhoneSize: CGSize(width: 161, height: 140), iPadSize: CGSize(width: 322, height: 280))
                         .cornerRadius(25)
                     Text(PremiumText1).fontWeight(.bold)
                 }.padding()
@@ -35,7 +35,7 @@ struct PremiumView: View {
                 ZStack{
                     Rectangle()
                         .fill(PremiumColor)
-                        .frame(width: 161, height: 140)
+                        .frameSizeForDevice(iPhoneSize: CGSize(width: 161, height: 140), iPadSize: CGSize(width: 322, height: 280))
                         .cornerRadius(25)
                     Text(PremiumText2).fontWeight(.bold)
                 }.padding()

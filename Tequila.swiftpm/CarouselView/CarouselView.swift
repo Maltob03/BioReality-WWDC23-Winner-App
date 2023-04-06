@@ -20,10 +20,10 @@ struct CarouselView: View {
                     SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "heart",color: CustomColor.myColor)
                 }.tag(2)
                 NavigationLink(destination: DetailView(DetailColor: modelLungs.color, ModelName: modelLungs.name,ModelText: modelLungs.description,organ: "Lungs.scn" )) {
-                    SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "lungs",color: CustomColor.myColor2).padding()
+                    SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "lungs",color: CustomColor.myColor2)
                 }.tag(3)
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                .frame(height: 376)
+                .frame(height: 400)
         }
     }
 }

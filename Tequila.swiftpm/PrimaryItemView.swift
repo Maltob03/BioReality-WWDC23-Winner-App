@@ -11,15 +11,21 @@ struct SingleCardView: View {
     @State var HeaderTextSquare: String
     @State var ImageAssetName: String
     @State var color: Color
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     var body: some View {
         ZStack{
             Rectangle()
                 .fill(color)
-                .frame(width: 350, height: 376)
                 .cornerRadius(25)
             VStack{
-                Text(HeaderTextSquare).fontWeight(.bold).foregroundColor(.white).padding(.top, 36)
-                Image(ImageAssetName).resizable().scaledToFit()
+                Text(HeaderTextSquare)
+                    .fontSizeForDevice(iPhoneSize: 20, iPadSize: 28)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(.top, 36)
+                Image(ImageAssetName)
+                    .resizable()
+                    .scaledToFit()
             }
             
         }.padding()
