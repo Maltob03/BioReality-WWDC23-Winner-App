@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "3D Demo",
+    name: "Tequila",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "3D Demo",
+            name: "Tequila",
             targets: ["AppModule"],
             bundleIdentifier: "Prova",
             teamIdentifier: "Y46CYM88ZX",

@@ -19,6 +19,7 @@ struct SingleCardView: View {
                 .cornerRadius(25)
             VStack{
                 Text(HeaderTextSquare)
+                    //.font(.system(.title2))
                     .fontSizeForDevice(iPhoneSize: 20, iPadSize: 28)
                     .fontWeight(.bold)
                     .foregroundColor(.white)

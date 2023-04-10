@@ -42,23 +42,22 @@ struct DetailView: View {
         }
     }
     
-    
-    
-    
     var top: some View{
         Group{
             ZStack{
-                Rectangle().fill(DetailColor).frame(height:600).cornerRadius(25.0).padding()
+                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                    .fill(DetailColor)
+                    .padding()
+                    .frameHeightForDevice(iPhoneHeight: 400, iPadHeight: 600)
                 CustomSceneView(scene: $scene)
                     .frameSizeForDevice(iPhoneSize: CGSize(width: 300, height: 300), iPadSize: CGSize(width: 600, height: 600))
-                    
             }
         }
     }
     
     var buttons: some View{
         HStack{
-            Text(TitleDetailView).bold().font(.system(size: 20.8))
+            Text(TitleDetailView).bold().font(.title3)
             Spacer()
             Button("AR View") {
                 isPresented.toggle()

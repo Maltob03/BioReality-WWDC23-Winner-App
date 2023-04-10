@@ -6,15 +6,16 @@ struct CardView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State var one: CGSize?
     var body: some View {
-        GeometryReader{ geometry in
             NavigationView(){
                 ScrollView(.vertical){
                     VStack{
                         if(horizontalSizeClass == .compact){
-                            CarouselView().padding(.top)
+                            CarouselView()
+                                .padding(.top)
+                            
                         }
                         else {
-                            IpadCarouselView(geoHeigth: geometry.size.height, geoWidth: geometry.size.width)
+                            IpadCarouselView()
                         }
                         HStack{
                             Text("Section").padding()
@@ -24,8 +25,6 @@ struct CardView: View {
                     }
                 }.navigationTitle("BioReality")
             }.navigationViewStyle(StackNavigationViewStyle())
-            
-        }
     }
     
     var secondaryList: some View{

@@ -8,10 +8,11 @@
 import SwiftUI
 
 
+
 struct CarouselView: View {
     @State private var index = 0
+    let screenRect = UIScreen.main.bounds
     var body: some View {
-        VStack{
             TabView(selection: $index) {
                 NavigationLink(destination: DetailView(DetailColor: modelBrain.color, ModelName: modelBrain.name,ModelText: modelBrain.description, organ: "Brain.scn" )) {
                     SingleCardView(HeaderTextSquare: "Nervous System", ImageAssetName: "brain",color: CustomColor.myColor3)
@@ -23,7 +24,7 @@ struct CarouselView: View {
                     SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "lungs",color: CustomColor.myColor2)
                 }.tag(3)
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                .frame(height: 400)
-        }
+            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                .frame(height: screenRect.size.height / 2)
     }
 }

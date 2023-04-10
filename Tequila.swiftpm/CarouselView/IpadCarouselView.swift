@@ -8,8 +8,7 @@
 import SwiftUI
 struct IpadCarouselView: View {
     let screenRect = UIScreen.main.bounds
-    @State var geoHeigth: CGFloat
-    @State var geoWidth: CGFloat
+    @State var frameSize : CGFloat = 0.0
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
@@ -23,10 +22,22 @@ struct IpadCarouselView: View {
                     SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "brain",color: CustomColor.myColor2)
                 }
             }
-        }.frame(height: geoHeigth*0.8)
+        }.onAppear(perform: {adaptFrame(frameSize: frameSize, screenHeigt: screenRect.size.height, screenWidth: screenRect.size.width)
+            print(frameSize)
+        })
+        .frame(height: frameSize)
     }
+    
+    func adaptFrame(frameSize: CGFloat, screenHeigt: CGFloat, screenWidth: CGFloat ){
+        if screenHeigt < 745 && screenWidth < 1134 || screenHeigt < 1134 && screenWidth < 745 {
+            self.frameSize = 550
+        }
+        else{ self.frameSize = 600 }
+    }
+    
     
     
 }
 
 
+//Vertical mini : 1133.0 - 744.0

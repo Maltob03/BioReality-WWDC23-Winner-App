@@ -10,6 +10,16 @@
 7. please find a name
 8. make a decent readme
 
-change absolute dimension
+
+
+change absolute dimension (DONE)
 ---
-fixed size on the frame of the primaryItemView : frame(600) (pretty solved, maybe there is a smarter solution)
+FontSize in PrimaryItemView: IPhone20, IPad28 **DONE**
+FrameSize SecondaryItem: IPhone(161-140), IPad(322-280) **TODO**
+FrameSize ShowDetailView of **Rectangle**: 600 **DA CAMBIARE**
+FrameSize ShowDetailView of **CustomSceneView**: IPhone(300-300), Ipad(600,600)
+FontSize ShowDetailView TITLE: 20.8 **FIXED title3**
+CarouselView frame 400 **EDIT: ora prende l'altezza dell'iphone/2 come misura per il frame'
+IPadCarouselView 550 **EDIT: ora se IpadMini va a 550 sennò 600 sugli altri modelli di Ipad**
+
+If i found alternative solution i will update this section
