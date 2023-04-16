@@ -8,28 +8,44 @@
 import SwiftUI
 
 struct SingleCardView: View {
+    @State var emoji: String
     @State var HeaderTextSquare: String
     @State var ImageAssetName: String
-    @State var color: Color
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
+    
     var body: some View {
         ZStack{
-            Rectangle()
-                .fill(color)
-                .cornerRadius(25)
-            VStack{
-                Text(HeaderTextSquare)
-                    //.font(.system(.title2))
-                    .fontSizeForDevice(iPhoneSize: 20, iPadSize: 28)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding(.top, 36)
-                Image(ImageAssetName)
+            Image("CardBG3")
                     .resizable()
                     .scaledToFit()
+                    .cornerRadius(25)
+                    .opacity(0.4)
+                    
+             
+            VStack(spacing: 0.5){
+                Rectangle()
+                    .fill(Color.black .opacity(0.5))
+                    .frame(width: 250, height: 70)
+                    .cornerRadius(25)
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(LinearGradient(gradient: Gradient(colors: [.purple, .indigo]), startPoint: .top, endPoint: .bottom), lineWidth: 4)
+                        )
+                    .overlay(
+                    Text(HeaderTextSquare)
+                        .fontSizeForDevice(iPhoneSize: 20, iPadSize: 24)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                )
+                Text(emoji).font(.system(size: 176))
+                
             }
             
-        }.padding()
+        }
+        .padding(8)
+        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10)
+        .shadow(color: Color.white.opacity(0.7), radius: 10, x: -5, y: -5)
     }
 }
 

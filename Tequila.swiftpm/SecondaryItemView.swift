@@ -8,54 +8,27 @@
 import SwiftUI
 
 struct PremiumView: View {
-    @State var PremiumText1: String
-    @State var PremiumText2: String
-    @State var PremiumColor: Color
-    @State var ShowAlert: Bool
     
+    @State var PremiumText1: String
     
     var body: some View {
-        VStack{
-            HStack{
+        GeometryReader{ geo in
                 ZStack{
                     Rectangle()
-                        .fill(PremiumColor)
-                        .frameSizeForDevice(iPhoneSize: CGSize(width: 161, height: 140), iPadSize: CGSize(width: 161, height: 140))
+                        .fill(LinearGradient(gradient: Gradient(colors: [.purple, .indigo]), startPoint: .top, endPoint: .bottom))
+                        .frame(width: (geo.size.width), height: 120)
                         .cornerRadius(25)
-                    Text(PremiumText1).fontWeight(.bold)
-                }.padding()
-                    .onTapGesture {
-                        ShowAlert = true
-                    }
-                    .alert("Do You want to buy this item?", isPresented: $ShowAlert) {
-                        Button("No") { }
-                        Button("Yes") { }
-                        
-                    }
-                ZStack{
-                    Rectangle()
-                        .fill(PremiumColor)
-                        .frameSizeForDevice(iPhoneSize: CGSize(width: 161, height: 140), iPadSize: CGSize(width: 161, height: 140))
-                        .cornerRadius(25)
-                    Text(PremiumText2).fontWeight(.bold)
-                }.padding()
-                    .onTapGesture {
-                        ShowAlert = true
-                    }
-                    .alert("Do You want to buy this item?", isPresented: $ShowAlert) {
-                                Button("No") { }
-                                Button("Yes") { }
-                            
-                    }//End of ZStack
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 25)
+                                    .stroke(Color("Rounded"), lineWidth: 4)
+                            )
+                    
+                    Text(PremiumText1)
+                        .fontSizeForDevice(iPhoneSize: 16, iPadSize: 22).padding(.horizontal,8)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
                 
-                
-            }//End HStack
-        }//End of VStack
-    }
-}
-
-struct PremiumView_Previews: PreviewProvider {
-    static var previews: some View {
-        PremiumView(PremiumText1: "Brain 1,99$", PremiumText2: "Skeleton 2,99$",PremiumColor: CustomColor.myColor, ShowAlert: false)
+            }
     }
 }

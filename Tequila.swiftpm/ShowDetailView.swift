@@ -9,7 +9,6 @@ import SwiftUI
 import SceneKit
 
 struct DetailView: View {
-    @State var DetailColor: Color //Backgorund Color in the DetailView
     @State var TitleDetailView: String //Name of the System
     @State var OrganDescription: String //Description of the System
     @State var scene: SCNScene? //object for AR/3D render
@@ -17,8 +16,7 @@ struct DetailView: View {
     @State var scene2: SCNScene?
     @State private var isPresented = false //var for the modal
     
-    init(DetailColor: Color, ModelName: String, ModelText: String, scene: SCNScene? = nil, organ: String) {
-        self.DetailColor = DetailColor
+    init(ModelName: String, ModelText: String, scene: SCNScene? = nil, organ: String) {
         
         self.TitleDetailView = ModelName
         self.OrganDescription = ModelText
@@ -33,36 +31,44 @@ struct DetailView: View {
         ScrollView{
             VStack{
                 top
-                buttons
                 Divider()
-                Text(OrganDescription).fixedSize(horizontal: false, vertical: true).padding()
+                Text(OrganDescription).fixedSize(horizontal: false, vertical: true).padding(24)
+            }.fullScreenCover(isPresented: $isPresented) {
+                arViewer
             }
-        }.fullScreenCover(isPresented: $isPresented) {
-            arViewer
+        }.navigationBarTitleDisplayMode(.inline)
+    }
+    
+    var header: some View{
+        Group{
+            HStack{
+                Text(TitleDetailView).bold().font(.title)
+                Spacer()
+                Button("See in AR") {
+                    isPresented.toggle()
+                }.buttonStyle(.borderedProminent)
+            }.padding(.top, 24)
+            .padding(.horizontal, 24)
         }
     }
     
     var top: some View{
         Group{
-            ZStack{
-                RoundedRectangle(cornerRadius: 25, style: .continuous)
-                    .fill(DetailColor)
-                    .padding()
-                    .frameHeightForDevice(iPhoneHeight: 400, iPadHeight: 600)
-                CustomSceneView(scene: $scene)
-                    .frameSizeForDevice(iPhoneSize: CGSize(width: 300, height: 300), iPadSize: CGSize(width: 600, height: 600))
+            VStack{
+                header
+                ZStack{
+                    Image("CardBG3")
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(25)
+                        .opacity(0.4)
+                        .padding(24)
+                        .frameHeightForDevice(iPhoneHeight: 400, iPadHeight: 600)
+                    CustomSceneView(scene: $scene)
+                        .frameSizeForDevice(iPhoneSize: CGSize(width: 300, height: 300), iPadSize: CGSize(width: 550, height: 550))
+                }
             }
         }
-    }
-    
-    var buttons: some View{
-        HStack{
-            Text(TitleDetailView).bold().font(.title3)
-            Spacer()
-            Button("AR View") {
-                isPresented.toggle()
-            }.buttonStyle(.bordered)
-        }.padding()
     }
     
     var arViewer: some View{
@@ -73,7 +79,12 @@ struct DetailView: View {
                     HStack{
                         Spacer()
                         ZStack{
-                            Image(systemName: "xmark.circle.fill").font(.system(size:35)).foregroundColor(.black)
+                            Image(systemName: "xmark.circle.fill").font(.system(size:40)).foregroundColor(.black)
+                                .background(.ultraThinMaterial)
+                            //.background(Color.white)
+                            //.colorMultiply(.black)
+                                .clipShape(Circle())
+                            
                         }.onTapGesture {
                             isPresented.toggle()
                         }

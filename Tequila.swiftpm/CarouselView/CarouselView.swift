@@ -14,16 +14,16 @@ struct CarouselView: View {
     let screenRect = UIScreen.main.bounds
     var body: some View {
             TabView(selection: $index) {
-                NavigationLink(destination: DetailView(DetailColor: modelBrain.color, ModelName: modelBrain.name,ModelText: modelBrain.description, organ: "Brain.scn" )) {
-                    SingleCardView(HeaderTextSquare: "Nervous System", ImageAssetName: "brain",color: CustomColor.myColor3)
+                NavigationLink(destination: DetailView(ModelName: modelBrain.name,ModelText: modelBrain.description, organ: "Brain.scn" )) {
+                    SingleCardView(emoji: "🧠", HeaderTextSquare: "Nervous System", ImageAssetName: "brain")
                 }.tag(1)
-                NavigationLink(destination: DetailView(DetailColor: modelHeart.color, ModelName: modelHeart.name,ModelText: modelHeart.description,organ: "Heart.scn")) {
-                    SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "heart",color: CustomColor.myColor)
+                NavigationLink(destination: DetailView( ModelName: modelHeart.name,ModelText: modelHeart.description,organ: "Heart.scn")) {
+                    SingleCardView(emoji: "🫀", HeaderTextSquare: "Circulatory System", ImageAssetName: "heart")
                 }.tag(2)
-                NavigationLink(destination: DetailView(DetailColor: modelLungs.color, ModelName: modelLungs.name,ModelText: modelLungs.description,organ: "Lungs.scn" )) {
-                    SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "lungs",color: CustomColor.myColor2)
+                NavigationLink(destination: DetailView( ModelName: modelLungs.name,ModelText: modelLungs.description,organ: "Lungs.scn" )) {
+                    SingleCardView(emoji: "🫁", HeaderTextSquare: "Circulatory System", ImageAssetName: "lungs")
                 }.tag(3)
-            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+            }.padding(8).tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                 .frame(height: screenRect.size.height / 2)
     }

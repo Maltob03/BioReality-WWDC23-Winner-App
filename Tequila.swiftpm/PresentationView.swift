@@ -4,37 +4,28 @@ import SwiftUI
 struct CardView: View {
     @State private var index = 0
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @State var one: CGSize?
+
     var body: some View {
+        GeometryReader{ geometry in
             NavigationView(){
-                ScrollView(.vertical){
+                ScrollView(.vertical,showsIndicators: false){
                     VStack{
                         if(horizontalSizeClass == .compact){
                             CarouselView()
-                                .padding(.top)
-                            
                         }
                         else {
-                            IpadCarouselView()
+                            IpadCarouselView().padding(.horizontal,8)
                         }
                         HStack{
-                            Text("Section").padding()
+                            Text("**Section**").padding()
                             Spacer()
-                        }
-                        secondaryList
-                    }
+                        }.padding(.horizontal, 8)
+                        GridView()
+                        
+                    } .frame(width: geometry.size.width, height: geometry.size.height + 50)
                 }.navigationTitle("BioReality")
             }.navigationViewStyle(StackNavigationViewStyle())
-    }
-    
-    var secondaryList: some View{
-        ScrollView(.horizontal, showsIndicators: false){
-            HStack{
-                PremiumView(PremiumText1: "Testa", PremiumText2: "Tronco",PremiumColor: CustomColor.myColor3, ShowAlert: false)
-                PremiumView(PremiumText1: "Arto Superiore", PremiumText2: "Arto Inferiore",PremiumColor: CustomColor.myColor, ShowAlert: false)
-            }
         }
     }
-    
 }
 

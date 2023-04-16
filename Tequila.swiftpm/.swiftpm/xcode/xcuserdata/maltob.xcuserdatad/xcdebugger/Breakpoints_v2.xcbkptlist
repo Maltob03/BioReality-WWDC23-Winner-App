@@ -20,5 +20,53 @@
             landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5239081A-6369-42B0-9930-DAD8E1E123B2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SceneViews/ARView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "makeUIView(context:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5239081A-6369-42B0-9930-DAD8E1E123B2 - 96d1b44be4106943"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tequila.ARView.makeUIView(context: SwiftUI.UIViewRepresentableContext&lt;Tequila.ARView&gt;) -&gt; some"
+                  moduleName = "Tequila"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maltob/Documents/GitHub/Tequila/Tequila.swiftpm/SceneViews/ARView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "936">
+               </Location>
+               <Location
+                  uuid = "5239081A-6369-42B0-9930-DAD8E1E123B2 - 96d1b44be4106943"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Tequila.ARView.makeUIView(context: SwiftUI.UIViewRepresentableContext&lt;Tequila.ARView&gt;) -&gt; some"
+                  moduleName = "Tequila"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maltob/Documents/GitHub/Tequila/Tequila.swiftpm/SceneViews/ARView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "964">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

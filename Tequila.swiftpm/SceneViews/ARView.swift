@@ -21,6 +21,7 @@ struct ARView: UIViewRepresentable {
         sceneView.scene = scene ?? SCNScene()
         
         let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = [.horizontal]
         sceneView.session.run(configuration)
         
         // Add pinch to zoom gesture
@@ -60,21 +61,17 @@ struct ARView: UIViewRepresentable {
             
             let scale = gestureRecognizer.scale
             
-            DispatchQueue.main.async {
-                sceneView.scene.rootNode.childNodes.forEach { node in
-                    var nodeScale = node.scale
-                    nodeScale.x *= Float(scale)
-                    nodeScale.y *= Float(scale)
-                    nodeScale.z *= Float(scale)
-                    node.scale = nodeScale
-                }
-                    
-                gestureRecognizer.scale = 1.0
+            sceneView.scene.rootNode.childNodes.forEach { node in
+                var nodeScale = node.scale
+                nodeScale.x *= Float(scale)
+                nodeScale.y *= Float(scale)
+                nodeScale.z *= Float(scale)
+                node.scale = nodeScale
             }
+            
+            gestureRecognizer.scale = 1.0
+            
         }
-
-
-
 
         
         // Handle rotation gesture

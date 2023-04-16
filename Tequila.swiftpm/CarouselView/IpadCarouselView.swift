@@ -12,14 +12,14 @@ struct IpadCarouselView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
-                NavigationLink(destination: DetailView(DetailColor: modelBrain.color, ModelName: modelBrain.name,ModelText: modelBrain.description, organ: "Brain.scn" )) {
-                    SingleCardView(HeaderTextSquare: "Nervous System", ImageAssetName: "brain",color: CustomColor.myColor3)
+                NavigationLink(destination: DetailView(ModelName: modelBrain.name,ModelText: modelBrain.description, organ: "Brain.scn" )) {
+                    SingleCardView(emoji: "🧠", HeaderTextSquare: "Nervous System", ImageAssetName: "heart")
                 }
-                NavigationLink(destination: DetailView(DetailColor: modelHeart.color, ModelName: modelHeart.name,ModelText: modelHeart.description,organ: "Heart.scn")) {
-                    SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "brain",color: CustomColor.myColor)
+                NavigationLink(destination: DetailView(ModelName: modelHeart.name,ModelText: modelHeart.description,organ: "Heart.scn")) {
+                    SingleCardView(emoji: "🫀", HeaderTextSquare: "Circulatory System", ImageAssetName: "brain")
                 }
-                NavigationLink(destination: DetailView(DetailColor: modelLungs.color, ModelName: modelLungs.name,ModelText: modelLungs.description,organ: "Lungs.scn" )) {
-                    SingleCardView(HeaderTextSquare: "Circulatory System", ImageAssetName: "brain",color: CustomColor.myColor2)
+                NavigationLink(destination: DetailView(ModelName: modelLungs.name,ModelText: modelLungs.description,organ: "Lungs.scn" )) {
+                    SingleCardView(emoji: "🫁", HeaderTextSquare: "Circulatory System", ImageAssetName: "brain")
                 }
             }
         }.onAppear(perform: {adaptFrame(frameSize: frameSize, screenHeigt: screenRect.size.height, screenWidth: screenRect.size.width)
@@ -30,14 +30,11 @@ struct IpadCarouselView: View {
     
     func adaptFrame(frameSize: CGFloat, screenHeigt: CGFloat, screenWidth: CGFloat ){
         if screenHeigt < 745 && screenWidth < 1134 || screenHeigt < 1134 && screenWidth < 745 {
-            self.frameSize = 550
+            self.frameSize = 350
         }
-        else{ self.frameSize = 600 }
+        else{ self.frameSize = 450 }
     }
     
     
     
 }
-
-
-//Vertical mini : 1133.0 - 744.0
