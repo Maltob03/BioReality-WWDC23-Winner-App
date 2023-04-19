@@ -17,7 +17,7 @@ struct CardView: View {
                             IpadCarouselView().padding(.horizontal,8)
                         }
                         HStack{
-                            Text("**Section**").padding()
+                            Text("**Diseases**").padding()
                             Spacer()
                         }.padding(.horizontal, 8)
                         GridView()

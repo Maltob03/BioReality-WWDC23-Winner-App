@@ -21,8 +21,6 @@ struct SingleCardView: View {
                     .scaledToFit()
                     .cornerRadius(25)
                     .opacity(0.4)
-                    
-             
             VStack(spacing: 0.5){
                 Rectangle()
                     .fill(Color.black .opacity(0.5))
@@ -30,16 +28,13 @@ struct SingleCardView: View {
                     .cornerRadius(25)
                     .overlay(
                             RoundedRectangle(cornerRadius: 25)
-                                .stroke(LinearGradient(gradient: Gradient(colors: [.purple, .indigo]), startPoint: .top, endPoint: .bottom), lineWidth: 4)
-                        )
+                                .stroke(LinearGradient(gradient: Gradient(colors: [.purple, .indigo]), startPoint: .top, endPoint: .bottom), lineWidth: 4))
                     .overlay(
                     Text(HeaderTextSquare)
                         .fontSizeForDevice(iPhoneSize: 20, iPadSize: 24)
                         .fontWeight(.bold)
-                        .foregroundColor(.white)
-                )
+                        .foregroundColor(.white))
                 Text(emoji).font(.system(size: 176))
-                
             }
             
         }

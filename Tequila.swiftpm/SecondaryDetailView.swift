@@ -11,34 +11,76 @@ import SceneKit
 struct SecondaryDetailView: View {
     @State var TitleDetailView: String //Name of the System
     @State var OrganDescription: String //Description of the System
-    
-    init(ModelName: String, ModelText: String) {
-        self.TitleDetailView = ModelName
-        self.OrganDescription = ModelText
-    }
-    
+    @State var risk: String
+    @State var impact: String
+    @State var complication: String
+    @State var isExpanded1: Bool = false
+    @State var isExpanded2: Bool = false
+    @State var isExpanded3: Bool = false
     
     var body: some View {
-        ScrollView{
-            VStack{
-                buttons
-                Divider().padding(.bottom,24)
-                Text(OrganDescription).fixedSize(horizontal: false, vertical: true).padding(.horizontal,24)
+        GeometryReader{ geometry in
+            ScrollView {
+                VStack {
+                    top
+                    List {
+                        disclousureGroup
+                    }
+                    .scrollContentBackground(.hidden)
+                    .frame(height: geometry.size.height / 1.3)
+                }
             }
-        }.navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline)
+        }
     }
     
-    var buttons: some View{
-        HStack{
-            Text(TitleDetailView).bold().font(.title)
-            Spacer()
-        }.padding(.top, 24)
-        .padding(.horizontal,24)
+    var top: some View{
+        Group{
+            HStack{
+                Text(TitleDetailView).bold().font(.largeTitle).foregroundColor(.purple)
+            }.padding(24)
+            Text(OrganDescription)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.horizontal, 24)
+        }
+    }
+    
+    var disclousureGroup: some View{
+        Group{
+            DisclosureGroup(
+                isExpanded: $isExpanded1,
+                content: { Text(risk) },
+                label: {
+                    Button("Risk") {
+                        withAnimation {
+                            isExpanded1.toggle()
+                        }
+                    }
+                }
+            )
+            DisclosureGroup(
+                isExpanded: $isExpanded2,
+                content: { Text(impact) },
+                label: {
+                    Button("Impact") {
+                        withAnimation {
+                            isExpanded2.toggle()
+                        }
+                    }
+                }
+            )
+            DisclosureGroup(
+                isExpanded: $isExpanded3,
+                content: { Text(complication) },
+                label: {
+                    Button("Complication") {
+                        withAnimation {
+                            isExpanded3.toggle()
+                        }
+                    }
+                }
+            )
+        }
     }
 }
 
-struct MyPreviewProvider_Previews: PreviewProvider {
-    static var previews: some View {
-        SecondaryDetailView(ModelName: "Heart", ModelText: fibrillation.text)
-    }
-}

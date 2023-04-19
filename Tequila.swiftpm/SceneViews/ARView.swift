@@ -24,11 +24,9 @@ struct ARView: UIViewRepresentable {
         configuration.planeDetection = [.horizontal]
         sceneView.session.run(configuration)
         
-        // Add pinch to zoom gesture
         let pinchGesture = UIPinchGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handlePinchGesture(_:)))
         sceneView.addGestureRecognizer(pinchGesture)
         
-        // Add rotation gesture
         let rotationGesture = UIRotationGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleRotationGesture(_:)))
         sceneView.addGestureRecognizer(rotationGesture)
         

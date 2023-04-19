@@ -8,19 +8,19 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "Tequila",
+    name: "BioReality",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "Tequila",
+            name: "BioReality",
             targets: ["AppModule"],
             bundleIdentifier: "Prova",
             teamIdentifier: "Y46CYM88ZX",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .openBook),
+            appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.purple),
             supportedDeviceFamilies: [
                 .pad,
@@ -33,8 +33,9 @@ let package = Package(
                 .portraitUpsideDown(.when(deviceFamilies: [.pad]))
             ],
             capabilities: [
-                .camera(purposeString: "Ammo famm piacer ja")
-            ]
+                .camera(purposeString: "For an immersive AR experience, the app requires access to your camera. Would you like to grant permission to access your camera?")
+            ],
+            appCategory: .education
         )
     ],
     targets: [

@@ -12,19 +12,17 @@ struct IpadCarouselView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
-                NavigationLink(destination: DetailView(ModelName: modelBrain.name,ModelText: modelBrain.description, organ: "Brain.scn" )) {
+                NavigationLink(destination: DetailView(ModelName: modelBrain.name,ModelText: modelBrain.description, credits: brainModelLicense, organ: "Brain.scn" )) {
                     SingleCardView(emoji: "🧠", HeaderTextSquare: "Nervous System", ImageAssetName: "heart")
                 }
-                NavigationLink(destination: DetailView(ModelName: modelHeart.name,ModelText: modelHeart.description,organ: "Heart.scn")) {
+                NavigationLink(destination: DetailView(ModelName: modelHeart.name,ModelText: modelHeart.description, credits: heartModelLicense,organ: "Heart.scn")) {
                     SingleCardView(emoji: "🫀", HeaderTextSquare: "Circulatory System", ImageAssetName: "brain")
                 }
-                NavigationLink(destination: DetailView(ModelName: modelLungs.name,ModelText: modelLungs.description,organ: "Lungs.scn" )) {
+                NavigationLink(destination: DetailView(ModelName: modelLungs.name,ModelText: modelLungs.description, credits: lungsModelLicense, organ: "Lungs.scn" )) {
                     SingleCardView(emoji: "🫁", HeaderTextSquare: "Circulatory System", ImageAssetName: "brain")
                 }
             }
-        }.onAppear(perform: {adaptFrame(frameSize: frameSize, screenHeigt: screenRect.size.height, screenWidth: screenRect.size.width)
-            print(frameSize)
-        })
+        }.onAppear(perform: {adaptFrame(frameSize: frameSize, screenHeigt: screenRect.size.height, screenWidth: screenRect.size.width)})
         .frame(height: frameSize)
     }
     
