@@ -60,7 +60,7 @@ BioReality is an innovative app that harnesses the power of augmented reality (A
 Clone the repository:
 
 ```
-git clone https://github.com/Maltob03/Tequila.git
+git clone https://github.com/Maltob03/BioReality-WWDC23-Winner-App.git
 ```
 Open the project in Xcode.
 Build and run the app on your iOS device or simulator.
