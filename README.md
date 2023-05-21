@@ -35,11 +35,12 @@
 
 ![image](https://res.cloudinary.com/maltob03/image/upload/v1684683165/Screenshot_2023-05-21_alle_17.30.45_job8xv.png)
 
+<div align="center">
 <div style="display: flex; justify-content: center;">
   <a><img src="https://res.cloudinary.com/maltob03/image/upload/v1684684215/Simulator_Screenshot_-_iPad_Air_5th_generation_-_2023-05-21_at_17.49.32_jdecdc.png" width="300""></a>
   <a style="margin-left: 10px;"><img src="https://res.cloudinary.com/maltob03/image/upload/v1684684112/ControlRoom-2023-05-21-17-25-36_hgwjr9.png" width="300"></a>
 </div>
-
+</div>
 
 ## What's about
 
