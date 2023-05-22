@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a><img src="https://res.cloudinary.com/maltob03/image/upload/v1684682368/AppIcon_uuphdl.jpg" width="200"></a>
+  <a><img src="https://res.cloudinary.com/maltob03/image/upload/v1684789671/bioreality_za0sqf.png" width="200"></a>
   <br>
   BioReality
   <br>
