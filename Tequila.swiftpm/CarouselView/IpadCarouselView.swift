@@ -12,13 +12,13 @@ struct IpadCarouselView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false){
             HStack{
-                NavigationLink(destination: DetailView(ModelName: modelBrain.name,ModelText: modelBrain.description, credits: brainModelLicense, organ: "Brain.scn" )) {
+                NavigationLink(destination: DetailView(ModelName: modelBrain.name,ModelText: modelBrain.description, organ: "Brain.scn" )) {
                     SingleCardView(emoji: "🧠", HeaderTextSquare: "Nervous System", ImageAssetName: "heart")
                 }
-                NavigationLink(destination: DetailView(ModelName: modelHeart.name,ModelText: modelHeart.description, credits: heartModelLicense,organ: "Heart.scn")) {
+                NavigationLink(destination: DetailView(ModelName: modelHeart.name,ModelText: modelHeart.description,organ: "Heart.scn")) {
                     SingleCardView(emoji: "🫀", HeaderTextSquare: "Circulatory System", ImageAssetName: "brain")
                 }
-                NavigationLink(destination: DetailView(ModelName: modelLungs.name,ModelText: modelLungs.description, credits: lungsModelLicense, organ: "Lungs.scn" )) {
+                NavigationLink(destination: DetailView(ModelName: modelLungs.name,ModelText: modelLungs.description,organ: "Lungs.scn" )) {
                     SingleCardView(emoji: "🫁", HeaderTextSquare: "Circulatory System", ImageAssetName: "brain")
                 }
             }

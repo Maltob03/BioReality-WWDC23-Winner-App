@@ -16,10 +16,10 @@ struct PremiumView: View {
                 ZStack{
                     Rectangle()
                         .fill(LinearGradient(gradient: Gradient(colors: [.purple, .indigo]), startPoint: .top, endPoint: .bottom))
-                        .frame(width: (geo.size.width), height: 120)
-                        .cornerRadius(25)
+                        .frameHeightForDevice(iPhoneHeight: 100, iPadHeight: 150)
+                        .cornerRadius(20)
                         .overlay(
-                                RoundedRectangle(cornerRadius: 25)
+                                RoundedRectangle(cornerRadius: 20)
                                     .stroke(Color("Rounded"), lineWidth: 4)
                             )
                     

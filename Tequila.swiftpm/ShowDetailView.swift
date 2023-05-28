@@ -11,17 +11,15 @@ import SceneKit
 struct DetailView: View {
     @State var TitleDetailView: String //Name of the System
     @State var OrganDescription: String //Description of the System
-    var credits: String
     @State var scene: SCNScene? //object for AR/3D render
     @State var organ: String //name of the OBJECT
     @State var scene2: SCNScene?
     @State private var isPresented = false //var for the modal
     @AppStorage("onBoarding") private var onBoarding = true
     
-    init(ModelName: String, ModelText: String, credits: String, scene: SCNScene? = nil, organ: String) {
+    init(ModelName: String, ModelText: String, scene: SCNScene? = nil, organ: String) {
         self.TitleDetailView = ModelName
         self.OrganDescription = ModelText
-        self.credits = credits
         self.scene = SCNScene(named: organ)
         self.scene2 = SCNScene(named: organ)
         self.organ = organ
@@ -43,7 +41,6 @@ struct DetailView: View {
                 Text(OrganDescription)
                     .fixedSize(horizontal: false, vertical: false)
                     .padding(.horizontal,24)
-                Text(credits).font(.system(size: 8)).padding(24)
             }.fullScreenCover(isPresented: $isPresented) {
                 arViewer
             }
@@ -79,7 +76,9 @@ struct DetailView: View {
                         .frameSizeForDevice(iPhoneSize: CGSize(width: 300, height: 300), iPadSize: CGSize(width: 550, height: 550))
                 }
                 HStack{
-                    Image(systemName: "arrow.up.and.down.and.arrow.left.and.right").foregroundColor(.purple)
+                    Image(systemName: "arkit")
+                        .foregroundColor(.purple)
+                        .font(.system(size: 24))
                     VStack(alignment: .leading) {
                         Text("**Interact with the 3D model**")
                         Text("Use two fingers on the screen, and then move them to zoom in or out or rotate it")
