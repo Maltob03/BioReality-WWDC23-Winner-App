@@ -17,12 +17,14 @@ struct CardView: View {
                             IpadCarouselView().padding(.horizontal,8)
                         }
                         HStack{
-                            Text("**Diseases**").padding()
+                            Text("Diseases")
+                                .bold()
+                                .padding()
                             Spacer()
                         }.padding(.horizontal, 8)
                         GridView()
                         
-                    } .frame(width: geometry.size.width, height: geometry.size.height + 50)
+                    } .frame(width: geometry.size.width, height: geometry.size.height + 70)
                 }.sheet(isPresented: $isPresented){
                     InfoView()
                 }

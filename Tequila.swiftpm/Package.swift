@@ -16,7 +16,7 @@ let package = Package(
         .iOSApplication(
             name: "BioReality",
             targets: ["AppModule"],
-            bundleIdentifier: "Prova",
+            bundleIdentifier: "BioRealty.Matteo.Altobello",
             teamIdentifier: "Y46CYM88ZX",
             displayVersion: "1.0",
             bundleVersion: "1",

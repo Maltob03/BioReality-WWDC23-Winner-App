@@ -37,7 +37,17 @@ struct SecondaryDetailView: View {
     var top: some View{
         Group{
             HStack{
-                Text(TitleDetailView).bold().font(.largeTitle).foregroundColor(.purple)
+                Text(TitleDetailView)
+                    .bold()
+                    .font(.largeTitle)
+                    .overlay {
+                        LinearGradient(gradient: Gradient(colors: [.purple, .indigo]), startPoint: .top, endPoint: .bottom)
+                            .mask(
+                                Text(TitleDetailView)
+                                    .bold()
+                                    .font(.largeTitle)
+                            )
+                    }
             }.padding(24)
             Text(OrganDescription)
                 .fixedSize(horizontal: false, vertical: true)

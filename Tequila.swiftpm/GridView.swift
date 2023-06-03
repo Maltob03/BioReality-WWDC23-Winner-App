@@ -27,12 +27,12 @@ struct GridView: View {
                 NavigationLink(destination: SecondaryDetailView(TitleDetailView: Alzheimer.title,OrganDescription: Alzheimer.text, risk: Alzheimer.risk, impact: Alzheimer.impact, complication: Alzheimer.complications)) {
                     PremiumView(PremiumText1: "Alzheimer's desease")
                         .frame(width: (geometry.size.width / 2) - 20, height: 150)
-                }
+                }.padding(.top)
                     
                 NavigationLink(destination: SecondaryDetailView(TitleDetailView: Ischemia.title,OrganDescription: Ischemia.text, risk: Ischemia.risk, impact: Ischemia.impact, complication: Ischemia.complications)) {
                     PremiumView(PremiumText1: "Ischemia")
                         .frame(width: (geometry.size.width / 2) - 20, height: 150)
-                }
+                }.padding(.top)
                 
                 
             }.padding(.horizontal, 24)
